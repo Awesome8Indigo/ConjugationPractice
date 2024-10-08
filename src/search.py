@@ -1,6 +1,7 @@
 def AddVerb(shoresh, binyan, *tenses): 
     for tense in tenses:
-        
+        if searchVerb(shoresh, binyan, tense):
+            
     #function to add new verb info
     return
 
