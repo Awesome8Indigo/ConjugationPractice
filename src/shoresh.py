@@ -1,5 +1,6 @@
 import json
 class shoresh:
+  
   def __init__(self, letters, meaning, *verbs):
     self.letters = letters
     self.verbs = verbs
@@ -7,8 +8,8 @@ class shoresh:
     self.jsontxt = self.jsonfile.read()
     self.jsonlst = json.loads(self.jsontxt)
     self.shrshlst = self.jsonlst["Shoresh"]
+
   def search(self) -> bool:
- 
     x = 0
     # counts # of shoresh
     for shrsh in self.shrshlst:
