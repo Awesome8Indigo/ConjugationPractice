@@ -1,9 +1,10 @@
 import json
 class shoresh:
   
-  def __init__(self, letters, meaning, *verbs):
+  def __init__(self, letters, meaning):
     self.letters = letters
-    self.verbs = verbs
+    self.meaning = meaning
+    self.jsonfileWrite = open("src/conjugations.json", "wt")
     self.jsonfile = open("src/conjugations.json", "rt")
     self.jsontxt = self.jsonfile.read()
     self.jsonlst = json.loads(self.jsontxt)
@@ -22,5 +23,12 @@ class shoresh:
       #using "search()" check if there is a search value.
       if(self.search()):
          return
-      
-    
+      #create new dictionary based of self.
+      newshrsh = {"Letters": self.letters, 
+                  "Meaning": self.meaning}
+      #take the shrshlst, and edit it. 
+      length = len(self.shrshlst)
+      self.shrshlst.append(newshrsh)
+      #replace the old jsonlst["Shoresh"] with the new one
+      self.jsonlst["Shoresh"] = self.shrshlst
+      newjson = json.dumps(self.jsonlst)
