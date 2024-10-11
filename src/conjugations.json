@@ -1,49 +1,149 @@
-
 {
-    "Shoresh":[
+    "Shoresh": [
         {
-            "Letters": ["ש","ל","ח"], 
-            "Meaning": ["to send"],
+            "Letters": [
+                "\u05e9",
+                "\u05dc",
+                "\u05d7"
+            ],
+            "Meaning": [
+                "to send"
+            ],
             "Pa'al": [
                 {
-                "Infinitive": "לשלוח",
-                "Past": [
-                    ["שלחתי","שלחתי","שלחנו", "שלחנו"],
-                    ["שלחת", "שלחת", "שלחתם", "שלחתן"],
-                    ["שלח", "שלחה", "שלחו", "שלחו"]
-                ],
-                "Present": [
-                    ["שולח", "שולחת", "שולחים", "שולחות"]
-                ],
-                "Future": [
-                    ["אשלח","אשלח","נשלח", "נשלח"],
-                    ["תשלח", "תשלחי", "תשלחו", "תשלחנה"],
-                    ["ישלח", "תשלח", "ישלחו", "תשלחנה"]
-                ],
-                "Imperative": ["שלח", "שלחי", "שלחו", "שלחנה"],
-                "Meaning": ["to send", "to dispatch"]
+                    "Infinitive": "\u05dc\u05e9\u05dc\u05d5\u05d7",
+                    "Past": [
+                        [
+                            "\u05e9\u05dc\u05d7\u05ea\u05d9",
+                            "\u05e9\u05dc\u05d7\u05ea\u05d9",
+                            "\u05e9\u05dc\u05d7\u05e0\u05d5",
+                            "\u05e9\u05dc\u05d7\u05e0\u05d5"
+                        ],
+                        [
+                            "\u05e9\u05dc\u05d7\u05ea",
+                            "\u05e9\u05dc\u05d7\u05ea",
+                            "\u05e9\u05dc\u05d7\u05ea\u05dd",
+                            "\u05e9\u05dc\u05d7\u05ea\u05df"
+                        ],
+                        [
+                            "\u05e9\u05dc\u05d7",
+                            "\u05e9\u05dc\u05d7\u05d4",
+                            "\u05e9\u05dc\u05d7\u05d5",
+                            "\u05e9\u05dc\u05d7\u05d5"
+                        ]
+                    ],
+                    "Present": [
+                        [
+                            "\u05e9\u05d5\u05dc\u05d7",
+                            "\u05e9\u05d5\u05dc\u05d7\u05ea",
+                            "\u05e9\u05d5\u05dc\u05d7\u05d9\u05dd",
+                            "\u05e9\u05d5\u05dc\u05d7\u05d5\u05ea"
+                        ]
+                    ],
+                    "Future": [
+                        [
+                            "\u05d0\u05e9\u05dc\u05d7",
+                            "\u05d0\u05e9\u05dc\u05d7",
+                            "\u05e0\u05e9\u05dc\u05d7",
+                            "\u05e0\u05e9\u05dc\u05d7"
+                        ],
+                        [
+                            "\u05ea\u05e9\u05dc\u05d7",
+                            "\u05ea\u05e9\u05dc\u05d7\u05d9",
+                            "\u05ea\u05e9\u05dc\u05d7\u05d5",
+                            "\u05ea\u05e9\u05dc\u05d7\u05e0\u05d4"
+                        ],
+                        [
+                            "\u05d9\u05e9\u05dc\u05d7",
+                            "\u05ea\u05e9\u05dc\u05d7",
+                            "\u05d9\u05e9\u05dc\u05d7\u05d5",
+                            "\u05ea\u05e9\u05dc\u05d7\u05e0\u05d4"
+                        ]
+                    ],
+                    "Imperative": [
+                        "\u05e9\u05dc\u05d7",
+                        "\u05e9\u05dc\u05d7\u05d9",
+                        "\u05e9\u05dc\u05d7\u05d5",
+                        "\u05e9\u05dc\u05d7\u05e0\u05d4"
+                    ],
+                    "Meaning": [
+                        "to send",
+                        "to dispatch"
+                    ]
                 }
             ],
             "Pi'el": [
                 {
-                "Infinitive": "לשלוח",
-                "Past": [
-                    ["שלחתי", "שלחתי","שלחנו","שלחנו"],
-                    ["שלחת", "שלחת", "שלחתם", "שלחתן"],
-                    ["שלח", "שלחה", "שלחו", "שלחו"]
-                ],
-                "Present": [
-                    ["משלח", "משלחת", "משלחתים", "משלחתות"]
-                ],
-                "Future": [
-                    ["אשלח","אשלח","נשלח", "נשלח"],
-                    ["תשלח", "תשלחי", "תשלחו", "תשלחנה"],
-                    ["ישלח", "תשלח", "ישלחו", "תשלחנה"]
-                ],
-                "Imperative": ["שלח", "שלחי", "שלחו", "שלחנה"],
-                "Meaning": ["to release", "to dismiss", "to be released", "to be dismissed"]
+                    "Infinitive": "\u05dc\u05e9\u05dc\u05d5\u05d7",
+                    "Past": [
+                        [
+                            "\u05e9\u05dc\u05d7\u05ea\u05d9",
+                            "\u05e9\u05dc\u05d7\u05ea\u05d9",
+                            "\u05e9\u05dc\u05d7\u05e0\u05d5",
+                            "\u05e9\u05dc\u05d7\u05e0\u05d5"
+                        ],
+                        [
+                            "\u05e9\u05dc\u05d7\u05ea",
+                            "\u05e9\u05dc\u05d7\u05ea",
+                            "\u05e9\u05dc\u05d7\u05ea\u05dd",
+                            "\u05e9\u05dc\u05d7\u05ea\u05df"
+                        ],
+                        [
+                            "\u05e9\u05dc\u05d7",
+                            "\u05e9\u05dc\u05d7\u05d4",
+                            "\u05e9\u05dc\u05d7\u05d5",
+                            "\u05e9\u05dc\u05d7\u05d5"
+                        ]
+                    ],
+                    "Present": [
+                        [
+                            "\u05de\u05e9\u05dc\u05d7",
+                            "\u05de\u05e9\u05dc\u05d7\u05ea",
+                            "\u05de\u05e9\u05dc\u05d7\u05ea\u05d9\u05dd",
+                            "\u05de\u05e9\u05dc\u05d7\u05ea\u05d5\u05ea"
+                        ]
+                    ],
+                    "Future": [
+                        [
+                            "\u05d0\u05e9\u05dc\u05d7",
+                            "\u05d0\u05e9\u05dc\u05d7",
+                            "\u05e0\u05e9\u05dc\u05d7",
+                            "\u05e0\u05e9\u05dc\u05d7"
+                        ],
+                        [
+                            "\u05ea\u05e9\u05dc\u05d7",
+                            "\u05ea\u05e9\u05dc\u05d7\u05d9",
+                            "\u05ea\u05e9\u05dc\u05d7\u05d5",
+                            "\u05ea\u05e9\u05dc\u05d7\u05e0\u05d4"
+                        ],
+                        [
+                            "\u05d9\u05e9\u05dc\u05d7",
+                            "\u05ea\u05e9\u05dc\u05d7",
+                            "\u05d9\u05e9\u05dc\u05d7\u05d5",
+                            "\u05ea\u05e9\u05dc\u05d7\u05e0\u05d4"
+                        ]
+                    ],
+                    "Imperative": [
+                        "\u05e9\u05dc\u05d7",
+                        "\u05e9\u05dc\u05d7\u05d9",
+                        "\u05e9\u05dc\u05d7\u05d5",
+                        "\u05e9\u05dc\u05d7\u05e0\u05d4"
+                    ],
+                    "Meaning": [
+                        "to release",
+                        "to dismiss",
+                        "to be released",
+                        "to be dismissed"
+                    ]
                 }
             ]
+        },
+        {
+            "Letters": [
+                "\u05d6,\u05d3",
+                "\u05d2"
+            ],
+            "Meaning": "to send"
         }
     ]
 }
