@@ -6,9 +6,9 @@ class shoresh:
     self.meaning = meaning
     
   def search(self) -> bool:
-    jsonfile = open("src/conjugations.json", "rt")
-    jsontxt = jsonfile.read()
-    jsonlst = json.loads(jsontxt)
+    with open("src/conjugations.json", "rt") as jsonfile:
+      jsontxt = jsonfile.read()
+      jsonlst = json.loads(jsontxt)
     shrshlst = jsonlst["Shoresh"]
     x = 0
     # counts # of shoresh
@@ -18,7 +18,6 @@ class shoresh:
         return True
       x += 1
 
-  
   def addShoresh(self):
     # Open the file in read mode, process it, and then close it automatically.
     with open("src/conjugations.json", "rt") as jsonfile:
