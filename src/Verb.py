@@ -1,5 +1,12 @@
+from src.shoresh import shoresh
+
 class Verb:
-    def __init__(self):
+    def __init__(self, Shoresh, Binyan, Spelling, ):
+        self.shoresh = Shoresh
+        self.binyan = Binyan
+        self.spelling = Spelling
+        if(self.shoresh.search() != True):
+            self.shoresh.addShoresh()
         pass
 
     def AddVerb(self, shoresh, binyan, *tenses): 
