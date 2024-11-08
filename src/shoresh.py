@@ -140,6 +140,7 @@ class Shoresh:
             "צ": "ץ",
             "מ": "ם"
         }
+        gutturals = ["א", "ע", "ה", "ח"]
         if tense is None:
             print("No tense to conjugate")
             return None
@@ -255,51 +256,153 @@ class Shoresh:
                 third_str = ["".join(third[0]), "".join(third[1]), "".join(third[2]), "".join(third[3])]
             return [first_str, second_str, third_str]
         elif tense == "Future":
-            # if letters[0] == "נ":
-            #     first = [
-            #         ["א", letters[1], final_letter_map.get(letters[2], letters[2])],  # ms
-            #         ["א", letters[1], final_letter_map.get(letters[2], letters[2])],
-            #         ["נ", letters[1], final_letter_map.get(letters[2], letters[2])],
-            #         ["נ", letters[1], final_letter_map.get(letters[2], letters[2])]
-            #     ]
-            #     second = [
-            #         ["ת", letters[1], final_letter_map.get(letters[2], letters[2])],
-            #         ["ת", letters[1], letters[2], "י"],
-            #         ["ת",  letters[1], letters[2], "ו"],
-            #         ["ת",  letters[1], letters[2], "ו"]
-            #     ]
-            #     third = [
-            #         ["י", letters[1], "ו", final_letter_map.get(letters[2], letters[2])],
-            #         ["ת", letters[1], "ו", final_letter_map.get(letters[2], letters[2])],
-            #         ["י", letters[1], letters[2], "ו"],
-            #         ["י", letters[1], letters[2], "ו"]
-            #     ]
-            #     first_str = ["".join(first[0]), "".join(first[1]), "".join(first[2]), "".join(first[3])]
-            #     second_str = ["".join(second[0]), "".join(second[1]), "".join(second[2]), "".join(second[3])]
-            #     third_str = ["".join(third[0]), "".join(third[1]), "".join(third[2]), "".join(third[3])]
 
-            # else:
-            first = [
-                    ["א", letters[0], letters[1], letters[2]], #ms
+            if letters[0] == "י":
+                exception = input("is the verb a) no root yod, \n"
+                                  " b) full root yod, \n"
+                                  " c) efol ")
+
+                if exception == "a":
+                    first = [
+                        ["א", letters[1], letters[2]],  # ms
+                        ["א", letters[1], letters[2]],
+                        ["נ", letters[1], letters[2]],
+                        ["נ", letters[1], letters[2]]
+                    ]
+                    second = [
+                        ["ת", letters[1], letters[2]],
+                        ["ת", letters[1], letters[2], "י"],
+                        ["ת", letters[1], letters[2], "ו"],
+                        ["ת", letters[1], letters[2], "ו"]
+                    ]
+                    third = [
+                        ["י", letters[1], letters[2]],
+                        ["ת", letters[1], letters[2]],
+                        ["י", letters[1], letters[2], "ו"],
+                        ["י", letters[1], letters[2], "ו"]
+                    ]
+                    first_str = ["".join(first[0]), "".join(first[1]), "".join(first[2]), "".join(first[3])]
+                    second_str = ["".join(second[0]), "".join(second[1]), "".join(second[2]), "".join(second[3])]
+                    third_str = ["".join(third[0]), "".join(third[1]), "".join(third[2]), "".join(third[3])]
+                elif exception == "b":
+                    first = [
+                        ["א", letters[0], letters[1], letters[2]],  # ms
+                        ["א", letters[0], letters[1], letters[2]],
+                        ["נ", letters[0], letters[1], letters[2]],
+                        ["נ", letters[0], letters[1], letters[2]]
+                    ]
+                    second = [
+                        ["ת", letters[0], letters[1], letters[2]],
+                        ["ת", letters[0], letters[1], letters[2], "י"],
+                        ["ת", letters[0], letters[1], letters[2], "ו"],
+                        ["ת", letters[0], letters[1], letters[2], "ו"]
+                    ]
+                    third = [
+                        ["י", letters[0], letters[1], letters[2]],
+                        ["ת", letters[0], letters[1], letters[2]],
+                        ["י", letters[0], letters[1], letters[2], "ו"],
+                        ["י", letters[0], letters[1], letters[2], "ו"]
+                    ]
+                    first_str = ["".join(first[0]), "".join(first[1]), "".join(first[2]), "".join(first[3])]
+                    second_str = ["".join(second[0]), "".join(second[1]), "".join(second[2]), "".join(second[3])]
+                    third_str = ["".join(third[0]), "".join(third[1]), "".join(third[2]), "".join(third[3])]
+                elif exception == "c":
+                    # efol rule:
+                    first = [
+                        ["א", letters[0], letters[1], "ו", letters[2]],  # ms
+                        ["א", letters[0], letters[1], "ו", letters[2]],
+                        ["נ", letters[0], letters[1], "ו", letters[2]],
+                        ["נ", letters[0], letters[1], "ו", letters[2]]
+                    ]
+                    second = [
+                        ["ת", letters[0], letters[1], "ו", letters[2]],
+                        ["ת", letters[0], letters[1], letters[2], "י"],
+                        ["ת", letters[0], letters[1], letters[2], "ו"],
+                        ["ת", letters[0], letters[1], letters[2], "ו"]
+                    ]
+                    third = [
+                        ["י", letters[0], letters[1], "ו", letters[2]],
+                        ["ת", letters[0], letters[1], "ו", letters[2]],
+                        ["י", letters[0], letters[1], letters[2], "ו"],
+                        ["י", letters[0], letters[1], letters[2], "ו"]
+                    ]
+                    first_str = ["".join(first[0]), "".join(first[1]), "".join(first[2]), "".join(first[3])]
+                    second_str = ["".join(second[0]), "".join(second[1]), "".join(second[2]), "".join(second[3])]
+                    third_str = ["".join(third[0]), "".join(third[1]), "".join(third[2]), "".join(third[3])]
+                else:
+                    print("invalid input")
+                    return
+
+            elif letters[2] == "ה":
+                first = [
+                    ["א", letters[0], letters[1], letters[2]],  # ms
                     ["א", letters[0], letters[1], letters[2]],
                     ["נ", letters[0], letters[1], letters[2]],
                     ["נ", letters[0], letters[1], letters[2]]
                 ]
-            second = [
+                second = [
                     ["ת", letters[0], letters[1], letters[2]],
                     ["ת", letters[0], letters[1], letters[2], "י"],
                     ["ת", letters[0], letters[1], letters[2], "ו"],
                     ["ת", letters[0], letters[1], letters[2], "ו"]
                 ]
-            third = [
+                third = [
+                    ["י", letters[0], letters[1], letters[2]],
+                    ["ת", letters[0], letters[1], letters[2]],
+                    ["י", letters[0], letters[1], letters[2], "ו"],
+                    ["י", letters[0], letters[1], letters[2], "ו"]
+                ]
+                first_str = ["".join(first[0]), "".join(first[1]), "".join(first[2]), "".join(first[3])]
+                second_str = ["".join(second[0]), "".join(second[1]), "".join(second[2]), "".join(second[3])]
+                third_str = ["".join(third[0]), "".join(third[1]), "".join(third[2]), "".join(third[3])]
+
+            elif letters[1] in gutturals or letters[2] in gutturals:
+                #efal rule
+                first = [
+                    ["א", letters[0], letters[1], letters[2]],  # ms
+                    ["א", letters[0], letters[1], letters[2]],
+                    ["נ", letters[0], letters[1], letters[2]],
+                    ["נ", letters[0], letters[1], letters[2]]
+                ]
+                second = [
+                    ["ת", letters[0], letters[1], letters[2]],
+                    ["ת", letters[0], letters[1], letters[2], "י"],
+                    ["ת", letters[0], letters[1], letters[2], "ו"],
+                    ["ת", letters[0], letters[1], letters[2], "ו"]
+                ]
+                third = [
+                    ["י", letters[0], letters[1], letters[2]],
+                    ["ת", letters[0], letters[1], letters[2]],
+                    ["י", letters[0], letters[1], letters[2], "ו"],
+                    ["י", letters[0], letters[1], letters[2], "ו"]
+                ]
+                first_str = ["".join(first[0]), "".join(first[1]), "".join(first[2]), "".join(first[3])]
+                second_str = ["".join(second[0]), "".join(second[1]), "".join(second[2]), "".join(second[3])]
+                third_str = ["".join(third[0]), "".join(third[1]), "".join(third[2]), "".join(third[3])]
+
+            else:
+                # efol rule:
+                first = [
+                    ["א", letters[0], letters[1], "ו", letters[2]], #ms
+                    ["א", letters[0], letters[1], "ו", letters[2]],
+                    ["נ", letters[0], letters[1], "ו", letters[2]],
+                    ["נ", letters[0], letters[1], "ו", letters[2]]
+                ]
+                second = [
+                    ["ת", letters[0], letters[1], "ו", letters[2]],
+                    ["ת", letters[0], letters[1], letters[2], "י"],
+                    ["ת", letters[0], letters[1], letters[2], "ו"],
+                    ["ת", letters[0], letters[1], letters[2], "ו"]
+                ]
+                third = [
                     ["י", letters[0], letters[1], "ו", letters[2]],
                     ["ת", letters[0], letters[1], "ו", letters[2]],
                     ["י", letters[0], letters[1], letters[2], "ו"],
                     ["י", letters[0], letters[1], letters[2], "ו"]
                 ]
-            first_str = ["".join(first[0]), "".join(first[1]), "".join(first[2]), "".join(first[3])]
-            second_str = ["".join(second[0]), "".join(second[1]), "".join(second[2]), "".join(second[3])]
-            third_str = ["".join(third[0]), "".join(third[1]), "".join(third[2]), "".join(third[3])]
+                first_str = ["".join(first[0]), "".join(first[1]), "".join(first[2]), "".join(first[3])]
+                second_str = ["".join(second[0]), "".join(second[1]), "".join(second[2]), "".join(second[3])]
+                third_str = ["".join(third[0]), "".join(third[1]), "".join(third[2]), "".join(third[3])]
             print("conjugations for future tense pa'a, are unreliable due to large amounts of irregularity") #will add suport later
             return [first_str, second_str, third_str]
 
