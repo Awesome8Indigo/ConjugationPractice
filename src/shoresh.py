@@ -258,6 +258,8 @@ class Shoresh:
         elif tense == "Future":
 
             if letters[0] == "י":
+
+
                 exception = input("is the verb a) no root yod, \n"
                                   " b) full root yod, \n"
                                   " c) efol ")
