@@ -85,7 +85,7 @@ class Shoresh:
             # Write the updated list back to the file
             with open("conjugations.json", "wt", encoding='utf-8') as jsonfile:
                 json.dump(jsonlst, jsonfile, ensure_ascii=False, indent=4)  # Write the updated JSON data
-    def binyanInfo(self, binyan, infinitive, past, present, future, imperative, meaning):
+    def binyanInfo(self, binyan=None, infinitive=None, past=None, present=None, future=None, imperative=None, meaning=None):
         with open("conjugations.json", "rt", encoding='utf-8') as jsonfile:
             jsonlst = json.load(jsonfile)
         shrshlst = jsonlst.get("Shoresh", [])
@@ -108,28 +108,31 @@ class Shoresh:
         if not (isinstance(imperative, list) or imperative is None):
             print("imperative is not a list")
             return
-        if not (isinstance(meaning, list) or meaning is None):
+        if not (isinstance(meaning, str) or meaning is None):
             print("meaning is not a list")
             return
         
         # Only add if binyan already exists
         if self.searchBinyan(binyan):
             #add basic details
-            shrsh_info[binyan] = {
-                "Infinitive": infinitive,
-                "Past": past,
-                "Present": present,
-                "Future": future,
-                "Imperative": imperative,
-                "Meaning": meaning
-            }
+            if infinitive is not None:
+                shrsh_info[binyan]["Infinitive"] = infinitive
+            if past is not None:
+                shrsh_info[binyan]["Past"] = past
+            if present is not None:
+                shrsh_info[binyan]["Present"] = present
+            if future is not None:
+                shrsh_info[binyan]["Future"] = future
+            if imperative is not None:
+                shrsh_info[binyan]["Imperative"] = imperative
+            if meaning is not None:
+                shrsh_info[binyan]["Meaning"] = meaning
 
             jsonlst["Shoresh"] = shrshlst
 
             # Write the updated list back to the file
             with open("conjugations.json", "wt", encoding='utf-8') as jsonfile:
                 json.dump(jsonlst, jsonfile, ensure_ascii=False, indent=4)  # Write the u
-        pass
 
     def autoConjugatePaal(self, tense):
         letters = self.letters
@@ -185,18 +188,19 @@ class Shoresh:
                 pf_str = "".join(pf)
             return [sm_str, sf_str, pm_str, pf_str]
         elif tense == "Past":
+
             if letters[2] in ["י", "ה"]:
                 first = [
-                    [letters[0], letters[1], letters[2], "ת", "י"],
-                    [letters[0], letters[1], letters[2], "ת", "י"],
-                    [letters[0], letters[1], letters[2], "נ", "ו"],
-                    [letters[0], letters[1], letters[2], "נ", "ו"],
+                    [letters[0], letters[1], "י", "ת", "י"],
+                    [letters[0], letters[1], "י", "ת", "י"],
+                    [letters[0], letters[1], "י", "נ", "ו"],
+                    [letters[0], letters[1], "י", "נ", "ו"],
                 ]
                 second = [
-                    [letters[0], letters[1], letters[2], "ת"],
-                    [letters[0], letters[1], letters[2], "ת"],
-                    [letters[0], letters[1], letters[2], "ת", "ם"],
-                    [letters[0], letters[1], letters[2], "ת", "ן"],
+                    [letters[0], letters[1], "י", "ת"],
+                    [letters[0], letters[1], "י", "ת"],
+                    [letters[0], letters[1], "י", "ת", "ם"],
+                    [letters[0], letters[1], "י", "ת", "ן"],
                 ]
                 third = [
                     [letters[0], letters[1], "ה"],
@@ -344,15 +348,15 @@ class Shoresh:
                 ]
                 second = [
                     ["ת", letters[0], letters[1], letters[2]],
-                    ["ת", letters[0], letters[1], letters[2], "י"],
-                    ["ת", letters[0], letters[1], letters[2], "ו"],
-                    ["ת", letters[0], letters[1], letters[2], "ו"]
+                    ["ת", letters[0], letters[1], "י"],
+                    ["ת", letters[0], letters[1], "ו"],
+                    ["ת", letters[0], letters[1], "ו"]
                 ]
                 third = [
                     ["י", letters[0], letters[1], letters[2]],
                     ["ת", letters[0], letters[1], letters[2]],
-                    ["י", letters[0], letters[1], letters[2], "ו"],
-                    ["י", letters[0], letters[1], letters[2], "ו"]
+                    ["י", letters[0], letters[1], "ו"],
+                    ["י", letters[0], letters[1], "ו"]
                 ]
                 first_str = ["".join(first[0]), "".join(first[1]), "".join(first[2]), "".join(first[3])]
                 second_str = ["".join(second[0]), "".join(second[1]), "".join(second[2]), "".join(second[3])]
@@ -407,32 +411,90 @@ class Shoresh:
                 third_str = ["".join(third[0]), "".join(third[1]), "".join(third[2]), "".join(third[3])]
             print("conjugations for future tense pa'a, are unreliable due to large amounts of irregularity") #will add suport later
             return [first_str, second_str, third_str]
-
-        elif tense == "Imperative":
-            return
-
         elif tense == "Infinitive":
-            return
+            if letters[2] == "ה":
+                inf = ["ל", letters[0], letters[1], "ו", "ת"]
+                print("make sure to check the conjugation.")
+                # Convert lists to strings
+                infstr = "".join(inf)
+            elif letters[1] in ["י", "ו"]:
+                inf = ["ל", letters[0], letters[1], letters[2]]
+                print("make sure to check the conjugation.")
+                # Convert lists to strings
+                infstr = "".join(inf)
+            elif letters[0] == "נ":
+                print("very possible this is wrong. please check.")
+            elif letters[0] == "י":
+                print("you will have to conjugate this on your own.")
+                return input("infinitive: ")
+            else:
+                inf = ["ל", letters[0], letters[1], "ו", final_letter_map.get(letters[2], letters[2])]
+                # Convert lists to strings
+                infstr = "".join(inf)
+
+            return infstr
+        elif tense == "Imperative":
+
+            if letters[0] in ["י", "נ"]:
+                sm = [letters[1], letters[2]]
+                sf = [letters[1], letters[2], "י"]
+                pm = [letters[1], letters[2], "ו"]
+                pf = [letters[1], letters[2], "ו"]
+                print("heavily innacurate")
+                # Convert lists to strings
+                sm_str = "".join(sm)
+                sf_str = "".join(sf)
+                pm_str = "".join(pm)
+                pf_str = "".join(pf)
+            elif letters[2] == "ה":
+                print("may be innacurate")
+                sm = [letters[0], letters[1], "ה"]
+                sf = [letters[0], letters[1], "י"]
+                pm = [letters[0], letters[1], "ו"]
+                pf = [letters[0], letters[1], "ו"]
+
+                # Convert lists to strings
+                sm_str = "".join(sm)
+                sf_str = "".join(sf)
+                pm_str = "".join(pm)
+                pf_str = "".join(pf)
+            elif letters[1] in gutturals or letters[2] in gutturals:
+                sm = [letters[0], letters[1], final_letter_map.get(letters[2], letters[2])]
+                sf = [letters[0], letters[1], letters[2], "י"]
+                pm = [letters[0], letters[1], letters[2], "ו"]
+                pf = [letters[0], letters[1], letters[2], "ו"]
+
+                # Convert lists to strings
+                sm_str = "".join(sm)
+                sf_str = "".join(sf)
+                pm_str = "".join(pm)
+                pf_str = "".join(pf)
+            else:
+                sm = [letters[0], letters[1], "ו", final_letter_map.get(letters[2], letters[2])]
+                sf = [letters[0], letters[1], letters[2], "י"]
+                pm = [letters[0], letters[1], letters[2], "ו"]
+                pf = [letters[0], letters[1], letters[2], "ו"]
+
+                # Convert lists to strings
+                sm_str = "".join(sm)
+                sf_str = "".join(sf)
+                pm_str = "".join(pm)
+                pf_str = "".join(pf)
+            return [sm_str, sf_str, pm_str, pf_str]
 
         return
 
     def autoConjugatePiel(self, tense):
         pass
-
     def autoConjugateHifil(self, tense):
         pass
-
     def autoConjugateHitpael(self, tense):
         pass
-
     def autoConjugateHufal(self, tense):
         pass
-
     def autoConjugatePual(self, tense):
         pass
-
     def autoConjugateNiphal(self, tense):
         pass
-
     def autoConjugate(self, binyan, meaning):
         pass
